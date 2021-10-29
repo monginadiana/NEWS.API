@@ -1,8 +1,8 @@
 from flask import render_template
-from news import news
+from app import app
 
 # Views
-@news.route('/')
+@app.route('/')
 def index():
 
     '''
