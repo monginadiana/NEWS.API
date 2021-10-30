@@ -53,3 +53,8 @@ def process_results(source_list):
         country = source_item.get('country')
         language = source_item.get('language')
         
+        sources_object = Source(id,name,description,url,category,country,language)
+
+        source_results.append(sources_object)
+
+    return source_results    
