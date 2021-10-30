@@ -17,4 +17,4 @@ def source(source_id):
     '''
     View movie page function that returns the movie details page and its data
     '''
-    return render_template('movie.html',id = source_id)
+    return render_template('source.html',id = source_id)
