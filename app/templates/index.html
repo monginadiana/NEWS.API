@@ -12,37 +12,6 @@
     {% endif %}
 </head>
 
-<body>
-
-    <body>
-        <!-- technology sources  -->
-        <h3> Technology_sources</h3>
-        <ul>
-            {% for technology_sources in technology %}
-            <li>{{ technology_sources.id}}</li>
-            {% endfor %}
-        </ul>
-        <!-- business sources -->
-        <h3> Business Sources </h3>
-        <ul>
-            {% for business_sources in business %}
-            <li>{{ business_sources.title}}</li>
-            {% endfor %}
-        </ul>
-        <!-- sports sources -->
-        <h3>Sports Sources</h3>
-        <ul>
-            {% for sport_sources in sports %}
-            <li>{{sport_sources.title}}</li>
-            {% endfor %}
-        </ul>
-    </body>
-
-</body>
-
-</html>
-{% import 'macros.html' as macro%}
-...
     <body>
         <!-- Popular movie -->
         <h3> Technology_sources</h3>
@@ -52,7 +21,7 @@
         <!-- Upcoming movie  -->
         <h3> Business Sources  </h3>
         <ul>
-            {{macro displaySourceList(business)}}
+            {{ macro displaySourceList(business)}}
         </ul>
         <!-- Now showing movie -->
         <h3>Sports Sources</h3>
@@ -60,3 +29,6 @@
             {{ macro displaySourceList(sports)}}
         </ul>
     </body>
+</html>
+
+   
