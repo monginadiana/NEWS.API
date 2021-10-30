@@ -1,3 +1,5 @@
+{% import 'macros.html' as macro%}
+
 <!DOCTYPE html>
 <html>
 
@@ -39,3 +41,22 @@
 </body>
 
 </html>
+{% import 'macros.html' as macro%}
+...
+    <body>
+        <!-- Popular movie -->
+        <h3> Technology_sources</h3>
+        <ul>
+            {{ macro displaySourceList(technology)}}
+        </ul>
+        <!-- Upcoming movie  -->
+        <h3> Business Sources  </h3>
+        <ul>
+            {{macro displaySourceList(business)}}
+        </ul>
+        <!-- Now showing movie -->
+        <h3>Sports Sources</h3>
+        <ul>
+            {{ macro displaySourceList(sports)}}
+        </ul>
+    </body>
