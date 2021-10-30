@@ -2,33 +2,31 @@
 
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title> Welcome to the best news article website </title>
-    {% endif %}
-</head>
-
+    <head>
+        <meta charset="utf-8">
+        {% if title %}
+        <title> {{ title }}</title>
+        {% else %}
+        <title> Welcome to the best News Review website </title>
+        {% endif %}
+    </head>
     <body>
-        <!-- Popular movie -->
-        <h3> Technology_sources</h3>
+        <!---The technology sources-->
+        <h3>Technology Sources</h3>
+
         <ul>
-            {{ macro displaySourceList(technology)}}
+            {{ macro.displaySourceList(technology)}}
         </ul>
-        <!-- Upcoming movie  -->
-        <h3> Business Sources  </h3>
+
+        <h3>Business Sources</h3>
+
         <ul>
-            {{ macro displaySourceList(business)}}
+            {{ macro.displaySourceList(business)}}
         </ul>
-        <!-- Now showing movie -->
         <h3>Sports Sources</h3>
         <ul>
-            {{ macro displaySourceList(sports)}}
+            {{ macro.displaySourceList(sport)}}
         </ul>
-    </body>
-</html>
 
-   
+      </body>
+</html>
