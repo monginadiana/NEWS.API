@@ -3,6 +3,7 @@ from app import app
 
 from .request import get_sources 
 
+
 @app.route('/')
 def index():
 
@@ -12,9 +13,10 @@ def index():
 
     # Getting popular movie
     popular_sources = get_sources()
-    # print(popular_sources)
+    upcoming_source = get_sources()
+    now_showing_sources = get_sources()
     title = 'Home - Welcome to The best News Article Website Online'
-    return render_template('index.html', title = title,popular = popular_sources)
+    return render_template('index.html', title = title, popular = popular_sources, upcoming = upcoming_source, now_showing = now_showing_sources )
 
 
 @app.route('/news/<int:news_id>')
