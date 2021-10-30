@@ -13,12 +13,12 @@ def index():
 
     # Getting news source
     technology_sources = get_sources('technology')
-    business_source = get_sources('business')
+    business_sources = get_sources('business')
     sport_sources = get_sources('sports')
 
     title = 'Enjoy Your Daily Brief'
 
-    return render_template('index.html', title = title, Tech = technology_sources, business = business_source, sports= sport_sources )
+    return render_template('index.html', title = title, Tech = technology_sources, business = business_sources, sports= sport_sources )
 
 
 @app.route('/news/<int:news_id>')

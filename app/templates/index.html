@@ -13,25 +13,25 @@
 <body>
 
     <body>
-        <!-- Popular movie section  -->
-        <h3> Popular Source</h3>
+        <!-- technology sources  -->
+        <h3> Technology_sources</h3>
         <ul>
-            {% for popular_source in popular %}
-            <li>{{ popular_source.id}}</li>
+            {% for technology_sources in technology %}
+            <li>{{ technology_sources.id}}</li>
             {% endfor %}
         </ul>
-        <!-- Upcoming movie  -->
-        <h3> Upcoming source </h3>
+        <!-- business sources -->
+        <h3> Business Sources </h3>
         <ul>
-            {% for upcoming_source in upcoming %}
-            <li>{{ upcoming_source.title}}</li>
+            {% for business_sources in business %}
+            <li>{{ business_sources.title}}</li>
             {% endfor %}
         </ul>
-        <!-- Now showing movie -->
-        <h3>Now Showing</h3>
+        <!-- sports sources -->
+        <h3>Sports Sources</h3>
         <ul>
-            {% for now_showing_source in now_showing %}
-            <li>{{ now_showing_source.title}}</li>
+            {% for sport_sources in sports %}
+            <li>{{sport_sources.title}}</li>
             {% endfor %}
         </ul>
     </body>
