@@ -12,9 +12,9 @@ def index():
     return render_template('index.html', title = title)
 
 @app.route('/news/<int:news_id>')
-def news(news_id):
+def source(source_id):
 
     '''
     View movie page function that returns the movie details page and its data
     '''
-    return render_template('movie.html',id = news_id)
+    return render_template('movie.html',id = source_id)
