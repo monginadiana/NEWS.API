@@ -1,38 +1,30 @@
+
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
-
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best News Review website </title>
-        {% endif %}
-    </head> -->
-<!-- Content block -->
-{% block content %}
-        <h2 class="text-center" style="font-family: serif;"> THE BEST NEWS SOURCES AND ARTICLES IN THE WORLD</h2>
+    <body>
+        <!-- Content block -->
+        {% block content %}
+      <div class="text-center">
+          <!-- Top News -->
+        <h3> Technology Sources </h3>
         <hr>
-
-        <!---The technology sources-->
-        <h3>Technology Sources</h3>
-
         <ul>
-            {{ macro.displaySourceList(technology)}}
+            {{ macro.displaySourceList( technology)}}
         </ul>
-
-        <h3>Business Sources</h3>
-
+        <!--Business Sources  -->
+        <h3> Business Sourses </h3>
+        <hr>
         <ul>
-            {{ macro.displaySourceList(business)}}
+            {{ macro.displaySourceList( business )}}
         </ul>
-        <h3>Sports Sources</h3>
+        <!-- Sports Sources -->
+        <h3> Sports Sources </h3>
+        <hr>
         <ul>
-            {{ macro.displaySourceList(sport)}}
+            {{ macro.displaySourceList( sport )}}
         </ul>
-        
+      </div>
+{% endblock%}
+      </body>
 
-        {% endblock%}
-</html>
+
