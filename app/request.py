@@ -7,6 +7,7 @@ import urllib.request,json
 
 # from app.source_test import Source
 from .models import source 
+from .articles import Articles
 
 Source = source.Source
 # Getting api key
@@ -19,7 +20,7 @@ def get_sources():
     '''
     Function that gets the json response to our url request
     '''
-    get_sources_url = base_url.format(api_key)
+    get_sources_url = 'https://newsapi.org/v2/sources?apiKey=57a2b9719c234580b841e4780b772d43'
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -81,12 +82,12 @@ def get_source(id):
             source_object = Source(id,name,description,url,category,country,language)
 
     return source_object
-    
+
 def get_article(id):
     '''
     Function that processes the articles and returns a list of articles objects
     '''
-    get_article_details_url = articles_url.format(id,api_key)
+    get_article_details_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=57a2b9719c234580b841e4780b772d43'.format(id)
 
     with urllib.request.urlopen(get_article_details_url) as url:
        get_article_data = url.read()
@@ -101,9 +102,9 @@ def get_article(id):
     return articles_results       
    
 
-def process_articles(articles_list):
+def process_articles(articles_results):
     articles_results = []
-    for article_item in articles_list:
+    for article_item in articles_results:
         id = article_item.get('id')
         author = article_item.get('author')
         title = article_item.get('title')
@@ -111,11 +112,11 @@ def process_articles(articles_list):
         url = article_item.get('url')
         image = article_item.get('urlToImage')
         date = article_item.get('publishedAt')
+
          
-        if image:
-            articles_result = Articles(
-                    id, author, title, description, url, image, date)
-            articles_results.append(articles_result)
+        article_object = Articles(id,author,title, description,url,image,date)
+
+        articles_results.append(article_object)
 
     return articles_results
 
