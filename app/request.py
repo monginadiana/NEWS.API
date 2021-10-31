@@ -81,3 +81,41 @@ def get_source(id):
             source_object = Source(id,name,description,url,category,country,language)
 
     return source_object
+    
+def get_article(id):
+    '''
+    Function that processes the articles and returns a list of articles objects
+    '''
+    get_article_details_url = articles_url.format(id,api_key)
+
+    with urllib.request.urlopen(get_article_details_url) as url:
+       get_article_data = url.read()
+       get_articles_response = json.loads(get_article_data)
+
+       articles_results = None
+
+       if get_articles_response['articles']:
+           articles_results_list = get_articles_response['articles']
+           articles_results = process_articles(articles_results_list) 
+
+    return articles_results       
+   
+
+def process_articles(articles_list):
+    articles_results = []
+    for article_item in articles_list:
+        id = article_item.get('id')
+        author = article_item.get('author')
+        title = article_item.get('title')
+        description = article_item.get('description')
+        url = article_item.get('url')
+        image = article_item.get('urlToImage')
+        date = article_item.get('publishedAt')
+         
+        if image:
+            articles_result = Articles(
+                    id, author, title, description, url, image, date)
+            articles_results.append(articles_result)
+
+    return articles_results
+
