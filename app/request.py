@@ -6,7 +6,7 @@ from app import app
 import urllib.request,json
 
 # from app.source_test import Source
-from .models import source
+from .models import source 
 
 Source = source.Source
 # Getting api key
@@ -59,7 +59,8 @@ def process_results(source_list):
 
         source_results.append(sources_object)
 
-    return source_results    
+    return source_results   
+
 def get_source(id):
     get_source_details_url = base_url.format(id,api_key)
 

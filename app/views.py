@@ -2,6 +2,8 @@ from flask import render_template
 from app import app
 
 from .request import get_sources 
+from .request import get_sources,get_source
+
 
 
 @app.route('/')
@@ -21,10 +23,13 @@ def index():
     return render_template('index.html', title = title, technology = technology_sources, business = business_sources, sport = sports_sources )
 
 
-@app.route('/news/<int:news_id>')
-def source(source_id):
+@app.route('/source/<int:id>')
+def source(id):
 
     '''
-    View source page function that returns the source details page and its data
+    View movie page function that returns the movie details page and its data
     '''
-    return render_template('source.html',id = source_id)
+    movie = get_source(id)
+    title = f'{source.title}'
+
+    return render_template('source.html',title = title,source = source)
