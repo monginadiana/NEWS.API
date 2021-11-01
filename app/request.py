@@ -22,6 +22,8 @@ def get_sources():
     '''
     get_sources_url = 'https://newsapi.org/v2/sources?apiKey=57a2b9719c234580b841e4780b772d43'
 
+    print(get_sources_url)
+
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
@@ -64,6 +66,7 @@ def process_results(source_list):
 
 def get_source(id):
     get_source_details_url = base_url.format(id,api_key)
+   
 
     with urllib.request.urlopen(get_source_details_url) as url:
         source_details_data = url.read()
@@ -83,11 +86,12 @@ def get_source(id):
 
     return source_object
 
-def get_article(id):
+def get_article(source_id):
     '''
     Function that processes the articles and returns a list of articles objects
     '''
-    get_article_details_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=57a2b9719c234580b841e4780b772d43'.format(id)
+    get_article_details_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=57a2b9719c234580b841e4780b772d43'.format(source_id)
+    
 
     with urllib.request.urlopen(get_article_details_url) as url:
        get_article_data = url.read()
@@ -98,6 +102,7 @@ def get_article(id):
        if get_articles_response['articles']:
            articles_results_list = get_articles_response['articles']
            articles_results = process_articles(articles_results_list) 
+           print(articles_results_list)
 
     return articles_results       
    
