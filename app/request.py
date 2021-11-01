@@ -64,27 +64,27 @@ def process_results(source_list):
 
     return source_results   
 
-def get_source(id):
-    get_source_details_url = base_url.format(id,api_key)
+# def get_source(id):
+#     get_source_details_url = base_url.format(id,api_key)
    
 
-    with urllib.request.urlopen(get_source_details_url) as url:
-        source_details_data = url.read()
-        source_details_response = json.loads(source_details_data)
+#     with urllib.request.urlopen(get_source_details_url) as url:
+#         source_details_data = url.read()
+#         source_details_response = json.loads(source_details_data)
 
-        source_object = None
-        if source_details_response:
-            id = source_details_response.get('id')
-            name = source_details_response.get('name')
-            description = source_details_response.get('description')
-            url = source_details_response.get('url')
-            category = source_details_response.get('category')
-            country = source_details_response.get('country')
-            language =source_details_response.get('language')
+#         source_object = None
+#         if source_details_response:
+#             id = source_details_response.get('id')
+#             name = source_details_response.get('name')
+#             description = source_details_response.get('description')
+#             url = source_details_response.get('url')
+#             category = source_details_response.get('category')
+#             country = source_details_response.get('country')
+#             language =source_details_response.get('language')
 
-            source_object = Source(id,name,description,url,category,country,language)
+#             source_object = Source(id,name,description,url,category,country,language)
 
-    return source_object
+#     return source_object
 
 def get_article(source_id):
     '''

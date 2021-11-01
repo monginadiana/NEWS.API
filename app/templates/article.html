@@ -1,9 +1,35 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macro%}
+<!-- {% import 'macros.html' as macro%} -->
 
 
     {% block content %}
-    {{macro.displayArticlesList(articles)}}
+    <!-- {{macro.displayArticlesList(articles)}} -->
+    <div class="container">
+      <!-- Popular movie section  -->
+      <h2 class="article-header">LETS SEE THE ARTICLES</h2>
+      {% for article_list in articles %}
+      <div class="row">
+        {% for article in article_list %}
+        <div class="col-md-6 article">
+          <div class="thumbnail">
+            <a href="{{article.url}}" target="_blank">
+              <img src="{{article.image}}" alt="{{article.title}}" class="img-responsive" styles="height:20px">
+            </a>
+            <div class="caption">
+              <h3>{{article.title}}</h3>
+              <p>{{article.description}}</p>
+              <a href="{{article.url}}" target="_blank"><button class="btn btn-success">READ MORE</button></a>
+            </div>
+            <div class="footer">
+              <p>Published on: {{article.date}}</p>
+              <p>Author: {{article.author}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
     
     {% endblock%}
     
