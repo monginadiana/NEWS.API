@@ -1,6 +1,10 @@
 
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
+{% block styles %}
+    {{ super() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    {% endblock %}
     <body>
         <!-- Content block -->
         {% block content %}
