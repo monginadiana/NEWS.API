@@ -32,11 +32,11 @@
                     <h4>{{ articles.author}}</h4>
                    
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style="color: white;background-color: rgb(128, 19, 0);">
                     <img src="{{articles.urlToImage}}" alt="{{articles.author}}" class="img-responsive" styles="height:30px"> 
                      <p>{{ articles.description | truncate(80)}}</p>
                      <a href="{{ articles.url }}" class="btn btn-primary mb-2">Read More</a>   
-                     <P>{{articles.publishedAt}}</P>
+                     <P>publishedat:{{articles.publishedAt}}</P>
                 </div>    
             </div>
         </div>
