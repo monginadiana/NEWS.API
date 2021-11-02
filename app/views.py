@@ -1,7 +1,7 @@
 from flask import render_template
-from app import app, articles
-
-from .request import get_article, get_sources 
+from app import app
+from .models import source
+from .request import  get_articles, get_sources 
 
 
 
@@ -25,12 +25,11 @@ def index():
 
 @app.route('/articles/<source_id>')
 def articles(source_id):
-    print(articles)
+   
 
     '''
     View movie page function that returns the source details page and its data
     '''
-    article_art = get_article(source_id)
-    
-
-    return render_template('article.html', articles= article_art)
+    articles = get_articles(source_id)
+    # print(articles)
+    return render_template('article.html', articles= articles)
